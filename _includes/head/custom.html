@@ -1,0 +1,139 @@
+<style>
+/* ========= 1) Sidebar avatar: scale down on phones ========= */
+:root{
+  --avatar-size: 260px;    /* desktop/tablet max */
+}
+.page .sidebar .author__avatar{
+  width: min(var(--avatar-size), 100%) !important;
+  aspect-ratio: 1 / 1;
+  border-radius: 50% !important;
+  overflow: hidden;
+  margin: 0 auto 1rem !important;
+}
+.page .sidebar .author__avatar img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+@media (max-width: 680px){
+  :root{ --avatar-size: 160px; }   /* smaller on phones to avoid clipping */
+}
+
+/* ========= 2) Content images: responsive + unfloated on phones ========= */
+.page .page__content img{
+  max-width: 100% !important;
+  height: auto !important;
+}
+@media (max-width: 768px){
+  .page .page__content img,
+  .page .page__content .align-right,
+  .page .page__content .align-left{
+    float: none !important;
+    display: block !important;
+    margin: 0 auto 1rem !important;
+  }
+  /* Kill fixed inline widths on phones */
+  .page .page__content img[style*="max-width"],
+  .page .page__content img[width]{
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* ========= 3) Hero banners: responsive height ========= */
+.hero-block{
+  position: relative;
+  min-height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.hero-bg{
+  position: absolute; inset: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(0.85);
+}
+.hero-inner{
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 280px;
+}
+@media (max-width: 680px){
+  .hero-block{ min-height: 200px; }
+  .hero-inner{ min-height: 200px; }
+  /* OPTIONAL: if you want zero-crop on phones, uncomment next line */
+  /* .hero-bg{ background-size: contain; background-color:#000; } */
+}
+
+/* ========= 4) Tables/iframes/PDFs: prevent sideways scrolling ========= */
+.page .page__content table{
+  display: block; overflow-x: auto; -webkit-overflow-scrolling: touch;
+}
+.page .page__content iframe,
+.page .page__content object,
+.page .page__content embed{
+  max-width: 100% !important; width: 100% !important; height: auto;
+  aspect-ratio: 16/9;
+}
+
+/* ========= 5) Optional: only widen sidebar on large screens ========= */
+@media (min-width: 900px){
+  .sidebar, .sidebar.sticky { max-width: 340px !important; }
+}
+
+/* ========= 6) Nicely styled bullet lists (you had these) ========= */
+.page .page__content h2{ margin-top:1.25rem; }
+.page .page__content ul{ list-style: none; padding-left: 0; }
+.page .page__content ul li{
+  padding:.5rem .75rem; margin:.15rem 0;
+  border:1px solid rgba(0,0,0,.06); border-radius:10px;
+  background:#fff; box-shadow:0 4px 12px rgba(0,0,0,.03);
+}
+.page .page__content ul li em{ color:#555; }
+@media (prefers-color-scheme: dark){
+  .page .page__content ul li{ background:#111; border-color:#222; }
+  .page .page__content ul li em{ color:#bbb; }
+}
+
+/* ========= 7) Talks table (new) ========= */
+.talks-table-wrapper{ width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.talks-table{
+  width:100%; border-collapse:separate; border-spacing:0; font-size:0.98rem;
+  background:var(--card-bg, #fff); border:1px solid rgba(0,0,0,.08); border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,.04); overflow:hidden;
+}
+.talks-table thead th{
+  text-align:left; padding:.65rem .75rem; background:rgba(0,0,0,.03); font-weight:600;
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.talks-table tbody td{ padding:.55rem .75rem; border-top:1px solid rgba(0,0,0,.04); vertical-align:top; }
+.talks-table tbody tr:first-child td{ border-top:none; }
+.talks-table th:nth-child(1), .talks-table td:nth-child(1){ white-space:nowrap; width:1%; }
+.talks-table th:nth-child(4), .talks-table td:nth-child(4){ white-space:nowrap; width:1%; }
+
+.badge{
+  display:inline-block; padding:.15rem .5rem; border-radius:.6rem; font-size:.85em; line-height:1;
+  border:1px solid rgba(0,0,0,.15); background:#f7f7f7;
+}
+.badge--oral{ background:#eef7ff; border-color:#b0d7ff; }
+.badge--poster{ background:#f5f0ff; border-color:#c9b8ff; }
+.badge--workshop{ background:#eaf9f0; border-color:#b9ebcd; }
+
+@media (max-width:700px){
+  .talks-table{ font-size:0.95rem; }
+  .talks-table th:nth-child(3), .talks-table td:nth-child(3){ min-width:160px; }
+}
+@media (prefers-color-scheme: dark){
+  .talks-table{ background:#111; border-color:#222; }
+  .talks-table thead th{ background:#1a1a1a; border-color:#222; }
+  .talks-table tbody td{ border-color:#1f1f1f; }
+  .badge{ border-color:#333; background:#1c1c1c; }
+  .badge--oral{ background:#0f2236; border-color:#163b62; }
+  .badge--poster{ background:#1c1930; border-color:#352c66; }
+  .badge--workshop{ background:#0f2317; border-color:#1d4b2e; }
+}
+</style>

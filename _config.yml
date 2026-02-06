@@ -1,0 +1,62 @@
+# --- Core site identity ---
+title: "Research Synthesis"
+description: "Expert-led evidence synthesis and review drafting support."
+locale: "en-GB"
+url: "https://research-synthesis.github.io"
+baseurl: ""
+repository: "Jamal-tech-git/research-synthesis.github.io"
+
+# Theme options (keep if your layout expects it)
+site_theme: "default"
+
+# --- Build behaviour ---
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+timezone: "Europe/London"
+
+# Keep these includes if your theme expects them; otherwise harmless.
+include:
+  - .htaccess
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .github
+  - .jekyll-assets-cache
+  - .sass-cache
+  - vendor
+  - node_modules
+  - package.json*
+  - Gemfile
+  - Gemfile.lock
+  - README
+
+# --- Disable “personal academic site” features ---
+breadcrumbs: false
+read_more: "disabled"
+comments:
+  provider:
+
+# Turn off author profile sidebars if the theme uses this default
+defaults:
+  - scope:
+      path: ""
+    values:
+      author_profile: false
+      share: false
+      comments: false
+      read_time: false
+
+# --- Plugins supported by GitHub Pages ---
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
+
+# RSS feed: keep on or off (off keeps things low-key)
+atom_feed:
+  hide: true
