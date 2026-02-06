@@ -2,6 +2,8 @@
 layout: default
 author_profile: false
 sidebar: false
+author_profile: false
+sidebar: false
 title: Services
 permalink: /services/
 ---
