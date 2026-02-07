@@ -1,9 +1,9 @@
 main:
   - title: "Services"
-    url: "{{ site.baseurl }}/services/"
+    url: /research-synthesis.github.io/services/
   - title: "How it works"
-    url: "{{ site.baseurl }}/how-it-works/"
+    url: /research-synthesis.github.io/how-it-works/
   - title: "Sample outputs"
-    url: "{{ site.baseurl }}/samples/"
+    url: /research-synthesis.github.io/samples/
   - title: "Request discussion"
-    url: "{{ site.baseurl }}/request/"
+    url: /research-synthesis.github.io/request/
